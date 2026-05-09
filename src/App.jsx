@@ -10,7 +10,7 @@ function App() {
   return (
    <div>
     <h1>Chapterly</h1>
-    <Button/>
+    <Button text="Test"/>
    </div>
   )
 }
