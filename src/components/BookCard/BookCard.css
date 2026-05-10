@@ -1,0 +1,44 @@
+.book-card-container {
+    background:var(--card-color);
+    border-radius:var(--border-radius);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+.book-card-content {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.book-card-title {
+    font-size:20px;
+    font-weight:700;
+}
+
+.book-card-author{
+    color:#666;
+}
+
+.book-card-status{
+    width:fit-content;
+    padding:6px 12px;
+    background:#f0ebff;
+    color:var(--primary-color);
+    border-radius:999px;
+    font-size:14px;
+}
+
+.book-card-progress{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.book-card-progress-text{
+    font-size:14px;
+    color:#666;
+}
