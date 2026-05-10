@@ -1,6 +1,7 @@
 :root{
   --primary-color:#7c5cff;
   --secondary-color:#f8f8f8;
+  --card-color:#5cb6ff;
   --text-color:#222;
   --border-radius:10px;
 }
