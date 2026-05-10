@@ -10,6 +10,7 @@ import Register from './pages/Register/Register'
 import Input from './components/Input/Input'
 import Textarea from './components/Textarea/Textarea'
 import Select from './components/Select/Select'
+import PageHeader from './components/PageHeader/PageHeader'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Select options={["Hello","Hi"]}/>}/>
+          <Route path="/" element={<PageHeader title={"Hello"} subtitle={"Hi"}/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
