@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import Input from './components/Input/Input'
+import Textarea from './components/Textarea/Textarea'
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Input placeholder={"Hello"}/>}/>
+          <Route path="/" element={<Textarea placeholder={"Hello"}/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
