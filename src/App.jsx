@@ -9,6 +9,7 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 
 import StatCard from './components/StatCard/StatCard'
+import ProgressBar from './components/ProgressBar/ProgressBar'
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<StatCard title={"Total Books"} value={45}/>}/>
+          <Route path="/" element={<ProgressBar progress={10}/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
