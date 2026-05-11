@@ -1,0 +1,22 @@
+.modal-container {
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,0.5);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+.modal-content {
+  width:100%;
+  max-width:500px;
+
+  background:white;
+  border-radius:var(--border-radius);
+
+  padding:24px;
+}
