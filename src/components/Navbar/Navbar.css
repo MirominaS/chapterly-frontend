@@ -47,6 +47,6 @@
 }
 
 .navbar-profile:hover {
-transform: scale(1.05);
-box-shadow: 0 8px 20px rgb(from var(--primary-color) r g b / 0.35);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgb(from var(--primary-color) r g b / 0.35);
 }
