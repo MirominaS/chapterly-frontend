@@ -7,9 +7,19 @@ import { BrowserRouter,Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import LandingPage from './pages/LandingPage/LandingPage'
 
 import StatCard from './components/StatCard/StatCard'
 import ProgressBar from './components/ProgressBar/ProgressBar'
+import BookCard from './components/BookCard/BookCard'
+import Loader from './components/Loader/Loader'
+import EmptyState from './components/EmptyState/EmptyState'
+import Modal from './components/Modal/Modal'
+import Sidebar from './components/Sidebar/Sidebar'
+import Navbar from './components/Navbar/Navbar'
+import MainLayout from './components/MainLayout/MainLayout'
+import PublicNavbar from './components/PublicNavbar/PublicNavbar'
+
 
 
 function App() {
@@ -17,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ProgressBar progress={10}/>}/>
+          <Route path="/" element={<LandingPage/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
