@@ -3,32 +3,60 @@
     display:flex;
     justify-content:space-between;
     align-items:center;   
-    padding:24px 60px;    
+    padding:20px 60px;    
     position:sticky;
-    top:0;    
-    background:white;   
-    border-bottom:1px solid #eee;   
-    z-index:100;
+    top:0;  
+    backdrop-filter:blur(14px);  
+    background:rgba(255,255,255,0.75); 
+    border-bottom:1px solid rgba(0,0,0,0.06);  
+    z-index:1000;
 }
 
 
-.public-navbar-logo{
-    font-size:28px;
-    font-weight:700;    
+.public-navbar-logo {
+    font-size:32px;
+    font-weight:800;   
+    letter-spacing:-1px; 
     color:var(--primary-color);
+    cursor:pointer;
+    transition:0.3s ease;
 }
 
-.public-navbar-links{
+.public-navbar-logo:hover {
+    transform:scale(1.03);
+}
+
+.public-navbar-links {
     display:flex;
     align-items:center;
-    gap:24px;
+    gap:14px;
 } 
 
-.public-navbar-links a{
+.public-navbar-links a {
+    padding:12px 18px;
+    border-radius:12px;
     font-size:15px;
     transition:0.2s;
+    transition:0.25s ease;
+    color:#333;
 } 
 
-.public-navbar-links a:hover{
+.public-navbar-links a:hover {
+    color:var(--primary-color);
+    background:#f3efff;
+}
+
+.public-navbar-links a:nth-child(2) {
+    border:1px solid #e6e6e6;
+}
+
+.public-navbar-links a:nth-child(3) {
+    background:var(--primary-color);
+    color:white;
+    box-shadow: 0 8px 20px rgba(124, 92, 255, 0.25);
+}
+
+.public-navbar-links a:nth-child(3):hover {
+    background-color: rgb(from var(--primary-color) r g b / 0.4);
     color:var(--primary-color);
 }
