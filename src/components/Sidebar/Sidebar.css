@@ -1,6 +1,8 @@
 .sidebar-container {
     width: 260px;
-    min-height: 100vh;  
+    height: 100vh;  
+    position: sticky;
+    top: 0;
     background: white;  
     padding: 24px;  
     display: flex;
@@ -9,6 +11,8 @@
     border-right: 1px solid #eee;   
     transition: all 0.3s ease;  
     overflow: hidden;
+    flex-shrink: 0;
+ 
 }
 
 .sidebar-container.collapsed {
