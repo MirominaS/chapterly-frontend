@@ -1,0 +1,46 @@
+.books-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.books-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.books-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    line-height: 1.1;
+}
+
+.books-subtitle {
+    font-size: 15px;
+    color: rgb(from var(--primary-color) r g b / 0.6);
+}
+
+.books-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.books-controls .input-container {
+    flex: 1;
+}
+
+.books-filter {
+    min-width: 220px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    gap: 24px;
+}
