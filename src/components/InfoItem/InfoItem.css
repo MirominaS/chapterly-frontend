@@ -1,0 +1,19 @@
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.info-item-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.info-item-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    line-height: 1.6;
+}
