@@ -22,6 +22,7 @@ import PublicNavbar from './components/PublicNavbar/PublicNavbar'
 import Books from './pages/Books/Books'
 import BookDetails from './pages/BookDetails/BookDetails'
 import AddThought from './pages/AddThought/AddThought'
+import Thoughts from './pages/Thoughts/Thoughts'
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/books" element={<Books/>}/>
           <Route path="/book-details" element={<BookDetails/>}/>
           <Route path="/add-thought" element={<AddThought/>}/>
+          <Route path="/thoughts" element={<Thoughts/>}/>
         </Routes>
     </BrowserRouter>
   )
