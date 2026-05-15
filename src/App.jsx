@@ -19,6 +19,9 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Navbar from './components/Navbar/Navbar'
 import MainLayout from './components/MainLayout/MainLayout'
 import PublicNavbar from './components/PublicNavbar/PublicNavbar'
+import Books from './pages/Books/Books'
+import BookDetails from './pages/BookDetails/BookDetails'
+import AddThought from './pages/AddThought/AddThought'
 
 
 
@@ -31,6 +34,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/books" element={<Books/>}/>
+          <Route path="/book-details" element={<BookDetails/>}/>
+          <Route path="/add-thought" element={<AddThought/>}/>
         </Routes>
     </BrowserRouter>
   )

@@ -5,8 +5,11 @@ import './BookDetails.css'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import Button from '../../components/Button/Button'
 import MainLayout from '../../components/MainLayout/MainLayout'
+import { useNavigate } from 'react-router-dom'
 
 const BookDetails = () => {
+
+  const navigate = useNavigate();
 
   const book = {
     title:'Atomic Habits',
@@ -43,7 +46,7 @@ const BookDetails = () => {
 
             <div className='book-actions'>
               <Button text="Update Progress" />
-              <Button text="Add Thought" />
+              <Button text="Add Thought" onClick={() => navigate("/add-thought")}/>
               <Button text="Add Quotes" />
 
             </div>
@@ -57,7 +60,7 @@ const BookDetails = () => {
             <h2>Thoughts</h2>
             <div className='book-section-actions'>
               <Button text="View All" />
-              <Button text="Add Thought" />
+              <Button text="Add Thought"  />
             </div>
           </div>
 
@@ -72,7 +75,7 @@ const BookDetails = () => {
           </div>
         </div>
 
-        {/* QUOTES SECTION */}
+        {/* quotes */}
 
         <div className='book-section'>
           <div className='book-section-header'>
@@ -90,7 +93,7 @@ const BookDetails = () => {
               of your goals. You fall to the
               level of your systems.”
             </p>
-            
+
           </div>
         </div>
       </div>

@@ -1,0 +1,54 @@
+.add-thought-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+.add-thought-card {
+    width: 100%;
+    max-width: 920px;
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.add-thought-card h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+}
+
+.add-thought-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.add-thought-form .input-field,
+.add-thought-form .textarea-field,
+.add-thought-form .custom-select {
+    width: 100%;
+}
+
+
+.add-thought-form .input-field,
+.add-thought-form .textarea-field {
+    margin: 0;
+}
+
+.add-thought-form .custom-select {
+    margin: 0;
+}
+
+
+.add-thought-form button {
+    margin-top: 12px;
+    align-self: flex-start;
+}
+
