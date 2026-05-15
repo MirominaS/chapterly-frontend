@@ -7,13 +7,13 @@
 .select-label {
     font-size: 14px;
     font-weight: 600;
-    padding-left: 12px;
+    /* padding-left: 12px; */
 }
 
 .select-custom {
     position: relative;
     width: 100%;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .select-field {
