@@ -1,9 +1,9 @@
 import React from 'react'
 import './BookCard.css'
 import ProgressBar from '../ProgressBar/ProgressBar'
-const BookCard = ({title,author,status,progress}) => {
+const BookCard = ({title,author,status,progress,onClick}) => {
   return (
-    <div className='book-card-container'>
+    <div className='book-card-container' onClick={onClick}>
         <div className='book-card-content'>
             <h3 className='book-card-title'>{title}</h3>
             <p className='book-card-author'>{author}</p>
