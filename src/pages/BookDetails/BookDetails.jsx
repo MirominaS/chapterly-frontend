@@ -47,7 +47,7 @@ const BookDetails = () => {
             <div className='book-actions'>
               <Button text="Update Progress" />
               <Button text="Add Thought" onClick={() => navigate("/add-thought")}/>
-              <Button text="Add Quotes" />
+              <Button text="Add Quotes" onClick={() => navigate("/add-quote")} />
 
             </div>
           </div>
