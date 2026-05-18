@@ -12,6 +12,7 @@ const Thoughts = () => {
      const thoughts = [
     {
       id:1,
+      type:'During',
       title:'Amazing pacing',
       content:'Really enjoying this.',
       page_no:20,
@@ -19,6 +20,7 @@ const Thoughts = () => {
     },
     {
       id:2,
+        type:'During',
       title:'Interesting idea',
       content:'Habits compound over time.',
     //   page_no:80,
@@ -36,13 +38,23 @@ const Thoughts = () => {
             <div className='thought-list'>
                 {thoughts.map((thought) => (
                     <div key={thought.id} className='thought-item'>
+                        <InfoItem label="Type:" value={thought.type}/>
                         <InfoItem label="Title:" value={thought.title}/>
                         <InfoItem label="Thought:" value={thought.content}/>
                         <InfoItem label="Page-No:" value={thought.page_no}/>
                         <InfoItem label="Mood:" value={thought.mood}/>
                         <div className='thought-actions'>
-                            <Button text="Edit"/>
-                            <Button text="Delete"/>
+                            <Button text="Edit" onClick={() => navigate("/edit-thought")}/>
+                            <Button 
+                              text="Delete"
+                              onClick={() => {
+                                const confirmed = window.confirm("Delete this thought?")
+                                if(confirmed) {
+                                  console.log("Deleted")
+                                }
+                              }}
+                            
+                            />
                         </div>
                     </div>
                 ))}
