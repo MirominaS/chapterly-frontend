@@ -8,6 +8,11 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import LandingPage from './pages/LandingPage/LandingPage'
+import Books from './pages/Books/Books'
+import BookDetails from './pages/BookDetails/BookDetails'
+import AddThought from './pages/AddThought/AddThought'
+import Thoughts from './pages/Thoughts/Thoughts'
+import EditThought from './pages/EditThought/EditThought'
 
 import StatCard from './components/StatCard/StatCard'
 import ProgressBar from './components/ProgressBar/ProgressBar'
@@ -19,10 +24,8 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Navbar from './components/Navbar/Navbar'
 import MainLayout from './components/MainLayout/MainLayout'
 import PublicNavbar from './components/PublicNavbar/PublicNavbar'
-import Books from './pages/Books/Books'
-import BookDetails from './pages/BookDetails/BookDetails'
-import AddThought from './pages/AddThought/AddThought'
-import Thoughts from './pages/Thoughts/Thoughts'
+
+
 
 
 
@@ -39,6 +42,8 @@ function App() {
           <Route path="/book-details" element={<BookDetails/>}/>
           <Route path="/add-thought" element={<AddThought/>}/>
           <Route path="/thoughts" element={<Thoughts/>}/>
+          <Route path="/edit-thought" element={<EditThought/>}/>
+
         </Routes>
     </BrowserRouter>
   )
