@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import './Sidebar.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { MdDashboard } from "react-icons/md";
 import { ImBooks } from "react-icons/im";
 import { MdAnalytics } from "react-icons/md";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
+import Button from '../Button/Button';
 
 const Sidebar = () => {
-
+    const navigate = useNavigate();
     const [isCollapsed, setIsCollapsed] = useState(false)
+
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        navigate('/login')
+    }
 
     return (
         <aside
@@ -50,6 +56,7 @@ const Sidebar = () => {
                 </NavLink>
 
             </nav>
+            <Button text="Logout" onClick={handleLogout}/>
 
         </aside>
     )
