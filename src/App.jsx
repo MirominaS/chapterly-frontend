@@ -13,17 +13,12 @@ import BookDetails from './pages/BookDetails/BookDetails'
 import AddThought from './pages/AddThought/AddThought'
 import Thoughts from './pages/Thoughts/Thoughts'
 import EditThought from './pages/EditThought/EditThought'
+import AddQuote from './pages/AddQuote/AddQuote'
+import Quotes from './pages/Quotes/Quotes'
+import EditQuote from './pages/EditQuote/EditQuote'
+import Analytics from './pages/Analytics/Analytics'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
-import StatCard from './components/StatCard/StatCard'
-import ProgressBar from './components/ProgressBar/ProgressBar'
-import BookCard from './components/BookCard/BookCard'
-import Loader from './components/Loader/Loader'
-import EmptyState from './components/EmptyState/EmptyState'
-import Modal from './components/Modal/Modal'
-import Sidebar from './components/Sidebar/Sidebar'
-import Navbar from './components/Navbar/Navbar'
-import MainLayout from './components/MainLayout/MainLayout'
-import PublicNavbar from './components/PublicNavbar/PublicNavbar'
 
 
 
@@ -35,15 +30,18 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/books" element={<Books/>}/>
-          <Route path="/book-details" element={<BookDetails/>}/>
-          <Route path="/add-thought" element={<AddThought/>}/>
-          <Route path="/thoughts" element={<Thoughts/>}/>
-          <Route path="/edit-thought" element={<EditThought/>}/>
-
+          <Route path="/books" element={<ProtectedRoute><Books/></ProtectedRoute>}/>
+          <Route path="/book-details" element={<ProtectedRoute><BookDetails/></ProtectedRoute>}/>
+          <Route path="/add-thought" element={<ProtectedRoute><AddThought/></ProtectedRoute>}/>
+          <Route path="/thoughts" element={<ProtectedRoute><Thoughts/></ProtectedRoute>}/>
+          <Route path="/edit-thought" element={<ProtectedRoute><EditThought/></ProtectedRoute>}/>
+          <Route path="/add-quote" element={<ProtectedRoute><AddQuote/></ProtectedRoute>}/>
+          <Route path="/quotes" element={<ProtectedRoute><Quotes/></ProtectedRoute>}/>
+          <Route path="/edit-quote" element={<ProtectedRoute><EditQuote/></ProtectedRoute>}/>
+          <Route path="analytics" element={<ProtectedRoute><Analytics/></ProtectedRoute>}/>
         </Routes>
     </BrowserRouter>
   )
