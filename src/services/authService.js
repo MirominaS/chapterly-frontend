@@ -42,4 +42,18 @@ export const loginUser = async (userData) => {
 
 export const getCurrentUser = async () => {
     const token = localStorage.getItem('token')
+
+    const response = await fetch(
+        `${API_URL}/auth/user`,
+        {
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        }
+    )
+    const data = await response.json()
+
+    if(!response.ok){
+        throw new Error(data.message)
+    }
 }
