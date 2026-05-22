@@ -1,0 +1,59 @@
+.add-book-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 0;
+}
+
+.add-book-card {
+    width: 100%;
+    max-width: 920px;
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.add-book-card h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+}
+
+.add-book-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.add-book-form .textarea-container,
+.add-book-form button,
+.add-book-form .input-container:last-of-type {
+    grid-column: span 2;
+}
+
+.add-book-form .input-field,
+.add-book-form .textarea-field,
+.add-book-form .custom-select {
+    width: 100%;
+}
+
+.add-book-form .input-field,
+.add-book-form .textarea-field,
+.add-book-form .custom-select {
+    margin: 0;
+}
+
+.add-book-form .textarea-field {
+    min-height: 160px;
+    line-height: 1.8;
+}
+
+.add-book-form button {
+    margin-top: 8px;
+    width: max-content;
+}
