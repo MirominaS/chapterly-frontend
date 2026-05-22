@@ -1,0 +1,58 @@
+.update-progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1% 0;
+}
+
+.update-progress-card {
+    width: 100%;
+    max-width: 920px;
+    background: white;
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow:0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.update-progress-card h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+}
+
+.update-progress-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.update-progress-form .input-field,
+.update-progress-form .textarea-field,
+.update-progress-form .custom-select {
+    width: 100%;
+}
+
+.update-progress-form .input-field,
+.update-progress-form .textarea-field,
+.update-progress-form .custom-select {
+    margin: 0;
+}
+
+.update-progress-form button {
+    grid-column: span 2;
+    margin-top: 8px;
+    width: max-content;
+}
+
+.update-progress-form input[type="date"] {
+    cursor: pointer;
+}
+
+.update-progress-form input[type="number"]::-webkit-inner-spin-button,
+.update-progress-form input[type="number"]::-webkit-outer-spin-button {
+    cursor: pointer;
+}
