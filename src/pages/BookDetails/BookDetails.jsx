@@ -28,6 +28,18 @@ const BookDetails = () => {
         {/* top */}
         <div className='book-details-top'>
           <div className='book-cover'> 📚 </div>
+          <div className='delete-book-wrapper'>
+            <Button 
+              text="Delete Book" 
+              onClick={() => {
+                        const confirmed = window.confirm("Delete quote?")
+                        if(confirmed) {
+                            console.log("Deleted")
+                        }
+                        navigate('/books')
+                    }}
+            />
+          </div>
 
           <div className='book-info'>
             <h1 className='book-title'>{book.title}</h1>
@@ -45,10 +57,8 @@ const BookDetails = () => {
             </div>
 
             <div className='book-actions'>
-              <Button text="Update Progress" />
-              <Button text="Add Thought" onClick={() => navigate("/add-thought")}/>
-              <Button text="Add Quotes" onClick={() => navigate("/add-quote")} />
-
+              <Button text="Edit book" onClick={() => navigate('/edit-book')}/>
+              <Button text="Update Progress" onClick={() => navigate('/update-progress')} />
             </div>
           </div>
         </div>
@@ -59,8 +69,8 @@ const BookDetails = () => {
           <div className='book-section-header'>
             <h2>Thoughts</h2>
             <div className='book-section-actions'>
-              <Button text="View All" />
-              <Button text="Add Thought"  />
+              <Button text="View All" onClick={() => navigate('/thoughts')} />
+              <Button text="Add Thought" onClick={() => navigate('/add-thought')}  />
             </div>
           </div>
 
@@ -81,8 +91,8 @@ const BookDetails = () => {
           <div className='book-section-header'>
             <h2>Quotes</h2>
             <div className='book-section-actions'>
-              <Button text="View All" />
-              <Button text="Add Thought" />
+              <Button text="View All" onClick={() => navigate('/quotes')}/>
+              <Button text="Add Quote" onClick={() => navigate('/add-quote')} />
             </div>
           </div>
 
