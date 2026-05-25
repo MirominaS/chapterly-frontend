@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import Button from '../../components/Button/Button'
 import MainLayout from '../../components/MainLayout/MainLayout'
-import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams  } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
 import { getBookById, deleteBook } from '../../services/bookService'
 
@@ -78,7 +77,7 @@ const BookDetails = () => {
             </div>
 
             <div className='book-actions'>
-              <Button text="Edit book" onClick={() => navigate('/edit-book')}/>
+              <Button text="Edit book" onClick={() => navigate(`/books/${book.id}/edit`)}/>
               <Button text="Update Progress" onClick={() => navigate('/update-progress')} />
             </div>
           </div>

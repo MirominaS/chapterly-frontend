@@ -61,6 +61,28 @@ export const getBookById = async (id) => {
     return data
 }
 
+export const updateBook = async (id, bookData) => {
+    const token = localStorage.getItem('token')
+    const response = await fetch(
+        `${API_URL}/books/${id}`,
+        {
+            method: 'PUT',
+            headers: {
+                'Content-Type' : 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(bookData)
+        }
+    )
+    const data = await response.json()
+
+    if(!response.ok) {
+        throw new Error(data.message)
+    }
+
+    return data 
+}
+
 export const deleteBook = async (id) => {
     const token = localStorage.getItem('token')
 
