@@ -6,7 +6,7 @@ import MainLayout from '../../components/MainLayout/MainLayout'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
-import { getBookById } from '../../services/bookService'
+import { getBookById, deleteBook } from '../../services/bookService'
 
 const BookDetails = () => {
 
@@ -30,6 +30,19 @@ const BookDetails = () => {
     }
     fetchBook()
   }, [id])
+
+  const handleDelete = async () => {
+    const confirmed = window.confirm("Are you sure you want to delete this book?")
+    if(!confirmed) return;
+
+    try {
+      await deleteBook(id)
+      navigate('/books')
+    } catch(error) {
+      console.error(error)
+      alert(error.message)
+    }
+  }
   
 
   if(loading) {
@@ -45,13 +58,7 @@ const BookDetails = () => {
           <div className='delete-book-wrapper'>
             <Button 
               text="Delete Book" 
-              onClick={() => {
-                        const confirmed = window.confirm("Delete quote?")
-                        if(confirmed) {
-                            console.log("Deleted")
-                        }
-                        navigate('/books')
-                    }}
+              onClick={handleDelete}
             />
           </div>
 

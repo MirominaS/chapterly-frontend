@@ -60,3 +60,24 @@ export const getBookById = async (id) => {
     }
     return data
 }
+
+export const deleteBook = async (id) => {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(
+        `${API_URL}/books/${id}`,
+        {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    )
+    const data = await response.json()
+
+    if(!response.ok) {
+        throw new Error(data.message)
+    }
+
+    return data
+}
