@@ -1,27 +1,41 @@
 import './BookDetails.css'
-
-
-
+import { useEffect, useState } from 'react'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import Button from '../../components/Button/Button'
 import MainLayout from '../../components/MainLayout/MainLayout'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import Loader from '../../components/Loader/Loader'
+import { getBookById } from '../../services/bookService'
 
 const BookDetails = () => {
 
   const navigate = useNavigate();
 
-  const book = {
-    title:'Atomic Habits',
-    author:'James Clear',
-    status:'Ongoing',
-    currentPage:120,
-    totalPages:320,
-    progress:38,
-    description:
-      'An easy and proven way to build good habits and break bad ones.',
-  }
+  const [book, setBook] = useState(null);
+  const [loading, setLoading] = useState(true)
 
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchBook = async () => {
+      try {
+        const data = await getBookById(id);
+        setBook(data)
+      } catch(error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchBook()
+  }, [id])
+  
+
+  if(loading) {
+    return <Loader/>
+  }
+ 
   return (
     <MainLayout>
       <div className='book-details-container'>
@@ -50,10 +64,10 @@ const BookDetails = () => {
             <div className='book-progress'>
               <div className='book-progress-info'>
                 <span>Progress</span>
-                <span>{book.currentPage} / {book.totalPages}</span>
+                <span>{book.current_page} /{book.total_pages}</span>
               </div>
 
-              <ProgressBar progress={book.progress} />
+              <ProgressBar progress={book.progress_percentage} />
             </div>
 
             <div className='book-actions'>
