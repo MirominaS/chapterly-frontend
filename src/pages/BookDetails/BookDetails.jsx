@@ -6,6 +6,7 @@ import MainLayout from '../../components/MainLayout/MainLayout'
 import { useNavigate, useParams  } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
 import { getBookById, deleteBook } from '../../services/bookService'
+import { GiWhiteBook } from "react-icons/gi";
 
 const BookDetails = () => {
 
@@ -53,8 +54,22 @@ const BookDetails = () => {
       <div className='book-details-container'>
         {/* top */}
         <div className='book-details-top'>
-          <div className='book-cover'> 📚 </div>
-          <div className='delete-book-wrapper'>
+          <div className='book-cover'> 
+            {
+              book.cover_image ? (
+                <img
+                  src={book.cover_image}
+                  alt={`${book.title} cover`}
+                  className='book-cover-image'
+                />
+              ) : (
+                <div className='book-cover-placeholder'>
+                  <GiWhiteBook />
+                </div>
+              )
+            }            
+          </div>
+          <div className='book-wrapper'>
             <Button 
               text="Delete Book" 
               onClick={handleDelete}
@@ -74,11 +89,12 @@ const BookDetails = () => {
               </div>
 
               <ProgressBar progress={book.progress_percentage} />
+              <p className='book-progress-text'>{book.progress_percentage}%</p>
             </div>
 
             <div className='book-actions'>
               <Button text="Edit book" onClick={() => navigate(`/books/${book.id}/edit`)}/>
-              <Button text="Update Progress" onClick={() => navigate('/update-progress')} />
+              <Button text="Update Progress" onClick={() => navigate(`/books/${book.id}/progress`)} />
             </div>
           </div>
         </div>

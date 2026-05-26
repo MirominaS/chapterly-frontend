@@ -75,6 +75,7 @@ const Books = () => {
                             author={book.author}
                             progress={book.progress_percentage}
                             status={book.status}
+                            cover_image={book.cover_image}
                             onClick={() => navigate(`/books/${book.id}`)}
                         />
                     ))

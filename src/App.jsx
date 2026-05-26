@@ -18,6 +18,9 @@ import Quotes from './pages/Quotes/Quotes'
 import EditQuote from './pages/EditQuote/EditQuote'
 import Analytics from './pages/Analytics/Analytics'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import AddBook from './pages/AddBook/AddBook'
+import EditBook from './pages/EditBook/EditBook'
+import UpdateProgress from './pages/UpdateProgress/UpdateProgress'
 
 
 
@@ -30,18 +33,34 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage/>}/>
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+          {/* <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/> */}
+          <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/books" element={<ProtectedRoute><Books/></ProtectedRoute>}/>
-          <Route path="/book-details" element={<ProtectedRoute><BookDetails/></ProtectedRoute>}/>
-          <Route path="/add-thought" element={<ProtectedRoute><AddThought/></ProtectedRoute>}/>
-          <Route path="/thoughts" element={<ProtectedRoute><Thoughts/></ProtectedRoute>}/>
-          <Route path="/edit-thought" element={<ProtectedRoute><EditThought/></ProtectedRoute>}/>
-          <Route path="/add-quote" element={<ProtectedRoute><AddQuote/></ProtectedRoute>}/>
-          <Route path="/quotes" element={<ProtectedRoute><Quotes/></ProtectedRoute>}/>
-          <Route path="/edit-quote" element={<ProtectedRoute><EditQuote/></ProtectedRoute>}/>
-          <Route path="analytics" element={<ProtectedRoute><Analytics/></ProtectedRoute>}/>
+          {/* <Route path="/books" element={<ProtectedRoute><Books/></ProtectedRoute>}/> */}
+          <Route path="/books" element={<Books/>}/>
+          {/* <Route path="/add-book" element={<ProtectedRoute><AddBook/></ProtectedRoute>}/> */}
+          <Route path="/add-book" element={<AddBook/>}/>
+          {/* <Route path="/books/:id/edit" element={<ProtectedRoute><EditBook/></ProtectedRoute>}/> */}
+          <Route path="/books/:id/edit" element={<EditBook/>}/>
+          {/* <Route path="/books/:id/progress" element={<ProtectedRoute><UpdateProgress/></ProtectedRoute>}/> */}
+          <Route path="/books/:id/progress" element={<UpdateProgress/>}/>
+          {/* <Route path="/book-details" element={<ProtectedRoute><BookDetails/></ProtectedRoute>}/> */}
+          <Route path="/books/:id" element={<BookDetails/>}/>
+          {/* <Route path="/add-thought" element={<ProtectedRoute><AddThought/></ProtectedRoute>}/> */}
+          <Route path="/add-thought" element={<AddThought/>}/>
+          {/* <Route path="/thoughts" element={<ProtectedRoute><Thoughts/></ProtectedRoute>}/> */}
+          <Route path="/thoughts" element={<Thoughts/>}/>
+          {/* <Route path="/edit-thought" element={<ProtectedRoute><EditThought/></ProtectedRoute>}/> */}
+          <Route path="/edit-thought" element={<EditThought/>}/>
+          {/* <Route path="/add-quote" element={<ProtectedRoute><AddQuote/></ProtectedRoute>}/> */}
+          <Route path="/add-quote" element={<AddQuote/>}/>
+          {/* <Route path="/quotes" element={<ProtectedRoute><Quotes/></ProtectedRoute>}/> */}
+          <Route path="/quotes" element={<Quotes/>}/>
+          {/* <Route path="/edit-quote" element={<ProtectedRoute><EditQuote/></ProtectedRoute>}/> */}
+          <Route path="/edit-quote" element={<EditQuote/>}/>
+          {/* <Route path="analytics" element={<ProtectedRoute><Analytics/></ProtectedRoute>}/> */}
+          <Route path="analytics" element={<Analytics/>}/>
         </Routes>
     </BrowserRouter>
   )

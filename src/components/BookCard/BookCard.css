@@ -14,6 +14,36 @@
     gap:8px;
 }
 
+.book-card-top {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.book-card-cover {
+    width: 90px;
+    height: 130px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f4f4f4;
+}
+
+.book-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
 .book-card-title {
     font-size:20px;
     font-weight:700;
@@ -41,4 +71,38 @@
 .book-card-progress-text{
     font-size:14px;
     color:#666;
+}
+
+.book-card-view {
+    width: max-content;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: relative;
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;
+}
+
+/* underline animation */
+
+.book-card-view::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.25s ease;
+}
+
+.book-card-view:hover {
+    transform: translateX(3px);
+}
+
+.book-card-view:hover::after {
+    width: 100%;
 }

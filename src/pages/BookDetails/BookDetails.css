@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.-book-wrapper {
+.book-wrapper {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -23,11 +23,25 @@
   width: 220px;
   height: 320px;
   border-radius: 20px;
-  background: #f3efff;
   display: flex;
-  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: center;
-  font-size: 72px;
+  justify-content: center;
+  font-size: 5rem;
+  background: #f4f4f4;
 }
 
 .book-info {
@@ -35,6 +49,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-right: 120px;
 }
 
 .book-title {
