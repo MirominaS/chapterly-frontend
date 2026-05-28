@@ -4,11 +4,14 @@ import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginUser } from '../../services/authService'
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+
 const Login = () => {
   
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({email: '', password: ''});
+  const { login, getToken } = useKindeAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -27,6 +30,15 @@ const Login = () => {
       alert(error.message)
     }
   }
+
+  const handleKindeLogin = async () => {
+    try {
+      await login();
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className='login-container'>
@@ -53,6 +65,7 @@ const Login = () => {
             onChange={handleChange}
           />
           <Button text="Login" onClick={handleSubmit}/>
+          <Button text="Continue with Google" onClick={handleKindeLogin}/>
         </div>
         <p className='login-footer'>
           Don't have an account?

@@ -57,3 +57,4 @@ export const getCurrentUser = async () => {
         throw new Error(data.message)
     }
 }
+
