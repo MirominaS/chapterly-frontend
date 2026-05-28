@@ -8,6 +8,7 @@ import Loader from '../../components/Loader/Loader'
 import { getBookById, deleteBook } from '../../services/bookService'
 import { GiWhiteBook } from "react-icons/gi";
 import { getThoughtsByBooks } from '../../services/thoughtService'
+import EmptyState from '../../components/EmptyState/EmptyState'
 
 const BookDetails = () => {
 
@@ -139,11 +140,7 @@ const BookDetails = () => {
               ))
 
             ) : (
-
-              <div className='empty-book-section'>
-                <p>No thoughts added yet.</p>
-              </div>
-
+                <EmptyState message="No thoughts added yet."/>
             )
           }
 
@@ -183,10 +180,7 @@ const BookDetails = () => {
               ))
 
             ) : (
-
-              <div className='empty-book-section'>
-                <p>No quotes added yet.</p>
-              </div>
+              <EmptyState message="No Quotes added yet."/>
 
             )
           }
