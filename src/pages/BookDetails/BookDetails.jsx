@@ -7,6 +7,7 @@ import { useNavigate, useParams  } from 'react-router-dom'
 import Loader from '../../components/Loader/Loader'
 import { getBookById, deleteBook } from '../../services/bookService'
 import { GiWhiteBook } from "react-icons/gi";
+import { getThoughtsByBooks } from '../../services/thoughtService'
 
 const BookDetails = () => {
 
@@ -18,17 +19,22 @@ const BookDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchBook = async () => {
+    const fetchBookData = async () => {
       try {
-        const data = await getBookById(id);
-        setBook(data)
+        const BookData = await getBookById(id);
+        const thoughtsData = await getThoughtsByBooks(id);
+        
+        setBook({
+          ...BookData,
+          thoughts: thoughtsData,
+        })
       } catch(error) {
         console.error(error)
       } finally {
         setLoading(false)
       }
     }
-    fetchBook()
+    fetchBookData()
   }, [id])
 
   const handleDelete = async () => {
@@ -104,43 +110,87 @@ const BookDetails = () => {
         <div className='book-section'>
           <div className='book-section-header'>
             <h2>Thoughts</h2>
+
             <div className='book-section-actions'>
-              <Button text="View All" onClick={() => navigate('/thoughts')} />
-              <Button text="Add Thought" onClick={() => navigate('/add-thought')}  />
+
+              {book.thoughts?.length > 0 && (
+                <Button
+                  text="View All"
+                  onClick={() => navigate('/thoughts')}
+                />
+              )}
+
+              <Button
+                text="Add Thought"
+                onClick={() => navigate('/add-thought')}
+              />
+
             </div>
           </div>
 
-          <div className='thought-card'>
-            <h3>Loving the pacing so far</h3>
+          {
+            book.thoughts?.length > 0 ? (
 
-            <p>
-              The concepts are practical and
-              easy to understand.
-            </p>
+              book.thoughts.slice(0,2).map((thought) => (
+                <div className='thought-card' key={thought.id}>
+                  <h3>{thought.title}</h3>
+                  <p>{thought.content}</p>
+                </div>
+              ))
 
-          </div>
+            ) : (
+
+              <div className='empty-book-section'>
+                <p>No thoughts added yet.</p>
+              </div>
+
+            )
+          }
+
         </div>
 
         {/* quotes */}
 
         <div className='book-section'>
           <div className='book-section-header'>
+
             <h2>Quotes</h2>
+
             <div className='book-section-actions'>
-              <Button text="View All" onClick={() => navigate('/quotes')}/>
-              <Button text="Add Quote" onClick={() => navigate('/add-quote')} />
+
+              {book.quotes?.length > 0 && (
+                <Button
+                  text="View All"
+                  onClick={() => navigate('/quotes')}
+                />
+              )}
+
+              <Button
+                text="Add Quote"
+                onClick={() => navigate('/add-quote')}
+              />
+
             </div>
           </div>
 
-          <div className='quote-card'>
+          {
+            book.quotes?.length > 0 ? (
 
-            <p>
-              “You do not rise to the level
-              of your goals. You fall to the
-              level of your systems.”
-            </p>
+              book.quotes.map((quote) => (
+                <div className='quote-card' key={quote.id}>
+                  <p>{quote.text}</p>
+                </div>
+              ))
 
-          </div>
+            ) : (
+
+              <div className='empty-book-section'>
+                <p>No quotes added yet.</p>
+              </div>
+
+            )
+          }
+
         </div>
       </div>
     </MainLayout>
