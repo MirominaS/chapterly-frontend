@@ -52,7 +52,7 @@ function App() {
           {/* <Route path="/books/:id/thoughts" element={<ProtectedRoute><Thoughts/></ProtectedRoute>}/> */}
           <Route path="/books/:id/thoughts" element={<Thoughts/>}/>
           {/* <Route path="/edit-thought" element={<ProtectedRoute><EditThought/></ProtectedRoute>}/> */}
-          <Route path="/edit-thought" element={<EditThought/>}/>
+          <Route path="/thoughts/:id/edit" element={<EditThought/>}/>
           {/* <Route path="/add-quote" element={<ProtectedRoute><AddQuote/></ProtectedRoute>}/> */}
           <Route path="/add-quote" element={<AddQuote/>}/>
           {/* <Route path="/quotes" element={<ProtectedRoute><Quotes/></ProtectedRoute>}/> */}

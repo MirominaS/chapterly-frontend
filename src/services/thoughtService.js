@@ -42,6 +42,51 @@ export const createThought = async (thoughtData) => {
 }
 
 
+
+export const getThoughtById = async (id) => {
+    const token = localStorage.getItem("token");
+    
+    const response = await fetch(
+        `${API_URL}/thoughts/${id}`,
+        {
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+    
+    const data = await response.json();
+    if(!response.ok) {
+        throw new Error(data.message)
+    }
+    
+    return data;
+}
+
+export const updateThought = async (id, thoughtData) => {
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+        `${API_URL}/thoughts/${id}`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(thoughtData),
+        }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    return data;
+};
+
 export const deleteThought = async(id) => {
     const token = localStorage.getItem("token")
 

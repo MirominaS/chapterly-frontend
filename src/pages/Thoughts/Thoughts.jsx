@@ -7,6 +7,7 @@ import InfoItem from '../../components/InfoItem/InfoItem'
 import { deleteThought, getThoughtsByBooks } from '../../services/thoughtService'
 import Loader from '../../components/Loader/Loader'
 import EmptyState from '../../components/EmptyState/EmptyState'
+import { IoMdClose } from "react-icons/io";
 
 const Thoughts = () => {
 
@@ -16,6 +17,7 @@ const Thoughts = () => {
 
     const [thoughts, setThoughts] = useState([])
     const [loading, setLoading] = useState(true)
+    const [selectedThought, setSelectedThought] = useState(null)
 
     useEffect(() => {
       const fetchThoughts = async () => {
@@ -57,57 +59,143 @@ const Thoughts = () => {
 
   return (
     <MainLayout>
-        <div className='thoughts-container'>
-            <div className='thoughts-header'>
-                <h1>Thoughts</h1>
-                <Button 
-                  text="Add Thought" 
-                  onClick={() => navigate(`/books/${id}/add-thought`)}/>
-            </div>
 
-            <div className='thought-list'>
-                {thoughts.length > 0 ? (
-                  thoughts.map((thought) => (
-                    <div key={thought.id} className='thought-item'>
-                        <InfoItem 
-                          label="Type:" 
-                          value={thought.type}
-                        />
-                        <InfoItem 
-                          label="Title:" 
-                          value={thought.title}
-                        />
-                        <InfoItem 
-                          label="Thought:" 
-                          value={thought.content}
-                        />
-                        <InfoItem 
-                          label="Page-No:" 
-                          value={thought.page_number}
-                        />
-                        <InfoItem 
-                          label="Mood:" 
-                          value={thought.mood}
-                        />
+      <div className='thoughts-container'>
 
-                        <div className='thought-actions'>
-                            <Button 
-                              text="Edit" 
-                              onClick={() => navigate(`/thoughts/${thought.id}/edit`)}
-                            />
-                            <Button 
-                              text="Delete"
-                              onClick={() => handleDelete(thought.id)}                            
-                            />
-                        </div>
-                    </div>
-                ))
-              ) : (                
-                  <EmptyState message="No thoughts added yet."/>
-              )
+          <div className='thoughts-header'>
+
+            <h1>
+              Thoughts
+            </h1>
+
+            <Button
+              text="Add Thought"
+              onClick={() =>
+                navigate(`/books/${id}/add-thought`)
               }
-            </div>
+            />
+
+          </div>
+
+          <div className='thought-list'>
+
+            {
+              thoughts.length > 0 ? (
+
+                thoughts.map((thought) => (
+
+                  <div
+                    key={thought.id}
+                    className='thought-item'
+                  >
+
+                    <h3 className='thought-title'>
+                      {
+                        thought.title ||
+                        "Untitled Thought"
+                      }
+                    </h3>
+
+                    <p className='thought-preview'>
+
+                      {
+                        thought.content?.length > 140
+                          ? `${thought.content.slice(0, 140)}...`
+                          : thought.content
+                      }
+
+                    </p>
+
+                    <div className='thought-actions'>
+
+                      <Button
+                        text="View"
+                        onClick={() =>
+                          setSelectedThought(thought)
+                        }
+                      />
+
+                    </div>
+
+                  </div>
+
+                ))
+
+              ) : (
+
+                <EmptyState
+                  message="No thoughts added yet."
+                />
+
+              )
+            }
+
+          </div>
+
         </div>
+          {
+            selectedThought && (
+            <div
+              className='thought-modal-overlay'
+              onClick={() =>
+                setSelectedThought(null)
+              }
+            >
+            <div
+              className='thought-modal'
+              onClick={(e) => e.stopPropagation()}
+              >
+
+            <button
+              className='thought-modal-close'
+              onClick={() => setSelectedThought(null)}>
+
+            <IoMdClose />
+
+            </button>
+
+            <h2>
+              {selectedThought.title || "Untitled Thought" }
+            </h2>
+
+              <InfoItem
+                label="Type"
+                value={selectedThought.type}
+              />
+              <InfoItem
+                label="Thought"
+                value={selectedThought.content}
+              />
+              <InfoItem
+                label="Page No"
+                value={selectedThought.page_number}
+              />
+              <InfoItem
+                label="Mood"
+                value={selectedThought.mood}
+              />
+              <div className='thought-modal-actions'>
+                <Button
+                  text="Edit"
+                  onClick={() =>
+                    navigate(
+                      `/thoughts/${selectedThought.id}/edit`
+                    )
+                  }
+                />
+                <Button
+                  text="Delete"
+                  onClick={() =>
+                    handleDelete(
+                      selectedThought.id
+                    )
+                  }
+                />
+              </div>
+              </div>
+            </div>
+          )
+        }
     </MainLayout>
   )
 }
