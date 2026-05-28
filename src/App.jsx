@@ -49,8 +49,8 @@ function App() {
           <Route path="/books/:id" element={<BookDetails/>}/>
           {/* <Route path="/add-thought" element={<ProtectedRoute><AddThought/></ProtectedRoute>}/> */}
           <Route path="/add-thought" element={<AddThought/>}/>
-          {/* <Route path="/thoughts" element={<ProtectedRoute><Thoughts/></ProtectedRoute>}/> */}
-          <Route path="/thoughts" element={<Thoughts/>}/>
+          {/* <Route path="/books/:id/thoughts" element={<ProtectedRoute><Thoughts/></ProtectedRoute>}/> */}
+          <Route path="/books/:id/thoughts" element={<Thoughts/>}/>
           {/* <Route path="/edit-thought" element={<ProtectedRoute><EditThought/></ProtectedRoute>}/> */}
           <Route path="/edit-thought" element={<EditThought/>}/>
           {/* <Route path="/add-quote" element={<ProtectedRoute><AddQuote/></ProtectedRoute>}/> */}
