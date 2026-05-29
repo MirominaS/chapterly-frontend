@@ -117,13 +117,13 @@ const BookDetails = () => {
               {book.thoughts?.length > 0 && (
                 <Button
                   text="View All"
-                  onClick={() => navigate('/thoughts')}
+                  onClick={() => navigate(`/books/${book.id}/thoughts`)}
                 />
               )}
 
               <Button
                 text="Add Thought"
-                onClick={() => navigate('/add-thought')}
+                onClick={() => navigate(`/books/${book.id}/add-thought`)}
               />
 
             </div>
